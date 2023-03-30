@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обращение</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .custom-title{
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6">
+                <div class="card-header">
+                    <h4 class="custom-title">Заполните форму для обращения</h4>
+                </div>
+
+                <div class="card-body">
+                    <form action="/appeal" method="POST">
+                        <div class="form-group">
+                            <label>Фамилия</label>
+                            <input type="text" class="form-control" id="surname" name="surname" placeholder="Введите фамилию">
+                        </div>
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя">
+                        </div>
+                        <div class="form-group">
+                            <label>Отчество</label>
+                            <input type="text" class="form-control" id="patronymic" name="patronymic" placeholder="Введите отчество">
+                        </div>
+                        <div class="form-group">
+                            <label>Номер телефона</label>
+                            <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Введите номер телефона">
+                        </div>  
+                        <div class="form-group">
+                            <label>Текст обращения</label>
+                            <textarea class="form-control rounded-0" id="appeal_text" name="appeal_text" rows="5" placeholder="Введите текст обращения"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="submit-button">Отправить</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div id="response">
+                        <h1>{{error_name}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

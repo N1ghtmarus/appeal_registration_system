@@ -1,0 +1,33 @@
+# venv
+venv/
+
+# SQLite3 database
+*.db
+
+# Alembic migration data
+alembic/versions/*.pyc
+alembic/versions/*.pyo
+alembic/versions/*.py
+
+# FastAPI logs
+logs/
+*.log
+
+# Tornado logs
+tornado.log
+
+# RabbitMQ data and logs
+rabbitmq.log
+*.pid
+*.log
+
+# RabbitMQ erlang cookie
+/.erlang.cookie
+
+# Compiled Python files
+__pycache__/
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.swp
