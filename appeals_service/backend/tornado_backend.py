@@ -1,6 +1,7 @@
 import tornado.ioloop
 import tornado.web
 import os
+from typing import NoReturn
 import uuid
 from tornado.options import define, options
 import pika
@@ -11,7 +12,7 @@ import json
 define("port", default=8888, help="run on the 8888", type=int)
 
 
-def send_rabbitmq(msg = {}):
+def send_rabbitmq(msg:{} = {}) -> NoReturn:
     """
     Функция устанавливает соединение с RabbitMQ и
     посылает сообщение в очередь tornado_task
@@ -55,7 +56,7 @@ class MainHandler(tornado.web.RequestHandler):
     """
     Обработчик запросов для главной страницы веб-приложения.
     """
-    async def get(self):
+    async def get(self) -> NoReturn:
         self.render("index.html", error_name=None)
 
 
@@ -64,7 +65,7 @@ class AppealHandler(tornado.web.RequestHandler):
     Обработчик запросов для страницы
     отправки обращений в rabbitmq
     """
-    def post(self):
+    def post(self) -> NoReturn:
         surname = self.get_argument("surname", default=None, strip=False)
         name = self.get_argument("name", default=None, strip=False)
         patronymic = self.get_argument("patronymic", default=None, strip=False)

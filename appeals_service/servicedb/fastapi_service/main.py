@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 
 
 @app.post("/")
-def create(details: CreateAppeal, db: Session = Depends(get_session)):
+def create(details: CreateAppeal, db: Session = Depends(get_session)) -> dict[str, bool]:
     """
     Функция создает новую запись об обращении в базе данных.
 

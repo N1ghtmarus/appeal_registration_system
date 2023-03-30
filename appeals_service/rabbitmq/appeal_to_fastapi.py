@@ -1,7 +1,8 @@
 import requests
+from typing import NoReturn
 
 
-def post_appeal_to_fastapi(appeal_data):
+def post_appeal_to_fastapi(appeal_data: bytes) -> NoReturn:
     """
     Функция отправляет POST-запрос на сервер FastAPI
     для записи обращения в базу данных.

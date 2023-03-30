@@ -1,12 +1,13 @@
 import os
 import sys
+from typing import NoReturn
 
 import pika
 
 from appeal_to_fastapi import post_appeal_to_fastapi
 
 
-def rabbitmq_receiver():
+def rabbitmq_receiver() -> NoReturn:
     """
     Устанавливает соединение с RabbitMQ и ожидает сообщения в очереди tornado_task.
     После получения сообщения вызывает функцию post_appeal_to_fastapi,
@@ -17,7 +18,7 @@ def rabbitmq_receiver():
 
     channel.queue_declare(queue='tornado_task')
 
-    def callback(ch, method, properties, body):
+    def callback(ch, method, properties, body: bytes) -> NoReturn:
         print(" [x] Appeal recieved %r" % body.decode())
         post_appeal_to_fastapi(body)
 
